@@ -1,4 +1,4 @@
-# Results — 17 August 2026
+# Results — 17–18 August 2026
 
 Two systems scored through the harness in this repository, on the same labels, in the same run.
 
@@ -93,14 +93,80 @@ Stated by the party with an interest in the result.
   During an earlier unpaced run, 50 of 70 requests failed the same way; pacing is now part of
   the harness and the failure is recorded here rather than smoothed away.
 
+---
+
+# The second measurement: alert load on a random population
+
+Added 18 August 2026, and it is the number a compliance officer actually lives with.
+
+`benchmark.py` scores names someone chose. `population.py` draws them at random from Norway's
+company register — no labels, no selection, no way to make it easy. It answers one question:
+
+> Screen a thousand ordinary counterparties. How many produce an alert?
+
+## The result
+
+| | Alert load | 95 % CI | Sample |
+|---|---|---|---|
+| Nodara, 17 August | 46 % | 39–53 % | 186 random Norwegian limited companies |
+| Nodara, 18 August | **7 %** | 3.7–11.8 % | 150 of the same, same seed |
+| Nodara, after the day's fixes | **2.7 %** | 1.0–6.7 % | derived, see below |
+
+**How 2.7 % is derived, since it is not a fresh run.** The ten companies that alerted were
+re-screened after the fixes; the 140 that did not were not. Every change that day except one is
+*suppressive* — it can only remove alerts, never create them. The exception is a cross-authority
+recency rule that can raise a company with adjudicated findings from two different regulators,
+which no three-employee holding company has. The figure is sound and it is derived rather than
+observed, and it is labelled as such here rather than quietly reported as a measurement.
+
+Of the four remaining alerts, **three are correct**: two companies in voluntary winding-up and
+one in compulsory liquidation, all read from the free national register. The fourth is a name
+collision — a Norwegian company sharing its name with a US retailer's Chapter 11.
+
+## What this number is NOT
+
+There is no ground truth in a random draw, so this is not accuracy. A system that alerts on
+nothing scores 0 % and is useless. Read it next to the labelled benchmark, never instead of it.
+
+And it cannot be compared to the industry's "85–95 % false positives", because that is a
+different fraction: share of *alerts* that are false, against our share of *counterparties* that
+alert. Our comparable figure is 1 of 4 — which, on four alerts, has a 95 % interval of 4.6–70 %
+and should not be quoted by anyone.
+
+When we followed the 85–95 % figure to its source, we found it attributed to *"widely cited
+across industry studies and regulatory discussions"* with **no named origin** — no regulator, no
+survey, no vendor study. That is not evidence the number is wrong. It is evidence that nobody
+can check it, which is the whole reason this repository exists.
+
+## Why a random draw is worth the trouble
+
+Four defects, none of which any labelled benchmark could reach, because every one of them needs
+a name that is short, generic, or collides with a common word:
+
+| Subject | What it was given | Cause |
+|---|---|---|
+| OEI HOLDING AS | Boeing's USD 2.5bn 737 Max settlement | `oei` is inside `bOEIng` |
+| OK INVEST AS | the Gunfight at the O.K. Corral | encyclopaedia article guessed from the name |
+| FIRST SEAGULL AS | a seagull that stole a handbag in Bournemouth | word matching instead of name matching |
+| JR HANSEN AS | a US federal fraud sentencing | `hansen` is a common Norwegian surname |
+
+A benchmark of famous names measures the easy half of the problem.
+
 ## Reproducing
 
 ```bash
-python3 benchmark.py --adapter baseline --thresholds 0.5,1.0
-python3 benchmark.py --adapter nodara --classes positive,negative --thresholds 0.6,1.0
+python3 benchmark.py  --adapter baseline --thresholds 0.5,1.0
+python3 benchmark.py  --adapter nodara   --classes positive,negative --thresholds 0.6,1.0
+python3 population.py --adapter baseline --n 150
+python3 population.py --adapter nodara   --n 150 --host https://your-deployment
 ```
 
-The baseline needs only Wikipedia. Scoring a commercial system costs whatever that system
-charges per query; ours bills EUR 0.10, so the 70-entity run above cost about EUR 7.
+The baseline and the population draw need only public data and no key. Scoring a commercial
+system costs whatever that system charges per query; ours bills EUR 0.10, so the 70-entity
+benchmark cost about EUR 7 and the 150-company population run about EUR 15.
 
-*Measured against production at `newsify-vuk0.onrender.com`, 17 August 2026.*
+`population.py` is written to be re-pointed: replace `draw_population` and it measures any
+jurisdiction with an open company register.
+
+*Measured against production at `newsify-vuk0.onrender.com`: the labelled benchmark 17 August
+2026, the population study 17–18 August 2026.*

@@ -12,6 +12,12 @@ It contains **126 labelled entities**, a **vendor-neutral harness**, and a **nai
 the numbers have a floor to compare against. Point it at any screening system — ours, a
 competitor's, your own — and it will produce the same two numbers for all of them.
 
+It also contains a **second, unlabelled measurement** that we have not seen published anywhere:
+`population.py` draws companies at random from a national register and reports what share of
+*ordinary counterparties* a system alerts on. No labels, no selection, no way to make it easy.
+That is the number that decides whether a screening system survives contact with a compliance
+team, and it is where we found four defects that the labelled benchmark could not reach.
+
 ---
 
 ## What it measures
@@ -77,6 +83,8 @@ Stated up front, because a benchmark that hides its weaknesses is a sales docume
 python3 benchmark.py --adapter baseline            # the naive floor
 python3 benchmark.py --adapter nodara --host https://your-deployment
 python3 benchmark.py --adapter yourmodule:screen   # anything importable
+
+python3 population.py --adapter yourmodule:screen --n 150   # alert load, no labels needed
 ```
 
 An adapter is one function:
@@ -86,8 +94,12 @@ def screen(name: str, subject_type: str = "company") -> dict:
     """Return {"alert": bool} or {"score": float} for one subject name."""
 ```
 
-That is the entire integration surface. `adapters/keyword_baseline.py` is 40 lines and exists
-so that nobody reports a number without knowing what "no system at all" scores.
+That is the entire integration surface — the same one function serves both measurements.
+`adapters/keyword_baseline.py` is 40 lines and exists so that nobody reports a number without
+knowing what "no system at all" scores.
+
+`population.py` needs no labels at all, so you can run it against your own system today, on a
+population you did not choose, without waiting for anyone to agree with our ground truth.
 
 ## Licence
 
