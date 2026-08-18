@@ -1,0 +1,677 @@
+{
+ "schema": "nodara-aml-benchmark-labels-1",
+ "count": 126,
+ "label_definitions": {
+  "positive": "Documented, citable enforcement for an AML predicate offence — bribery, corruption, money laundering, fraud or sanctions — against the entity itself, or for a person against that person. The citation is recorded inline.",
+  "negative": "No such documented matter found at labelling time.",
+  "ambiguous": "Enforcement exists but of a different kind (antitrust, environmental, consumer, tax). EXCLUDED from the headline metrics and reported separately: whether these should alert is a policy question, not a ground truth.",
+  "not_an_entity": "Topics, places, events, concepts. AML screening is never run on these. A sanity class: an alert here is a defect but not a false positive against a real screening population."
+ },
+ "labelled_on": "2026-08-17",
+ "entities": [
+  {
+   "name": "Danske Bank",
+   "label": "positive",
+   "citation": "DOJ guilty plea to bank fraud conspiracy, USD 2bn, Dec 2022",
+   "most_recent_year": 2022
+  },
+  {
+   "name": "Wirecard",
+   "label": "positive",
+   "citation": "Munich prosecutors charged CEO Braun with fraud and accounting manipulation, Mar 2022",
+   "most_recent_year": 2022
+  },
+  {
+   "name": "Glencore",
+   "label": "positive",
+   "citation": "DOJ FCPA and market-manipulation guilty pleas, ~USD 1.1bn, May 2022",
+   "most_recent_year": 2022
+  },
+  {
+   "name": "Odebrecht",
+   "label": "positive",
+   "citation": "DOJ FCPA guilty plea, global resolution USD 3.5bn, Dec 2016",
+   "most_recent_year": 2016
+  },
+  {
+   "name": "Petrobras",
+   "label": "positive",
+   "citation": "SEC settlement USD 853m, Sep 2018 (Lava Jato)",
+   "most_recent_year": 2018
+  },
+  {
+   "name": "Enron",
+   "label": "positive",
+   "citation": "Multiple securities-fraud convictions, 2004-2006",
+   "most_recent_year": 2006
+  },
+  {
+   "name": "Theranos",
+   "label": "positive",
+   "citation": "Holmes convicted of investor fraud, Jan 2022",
+   "most_recent_year": 2022
+  },
+  {
+   "name": "FTX",
+   "label": "positive",
+   "citation": "Bankman-Fried convicted on seven fraud and conspiracy counts, Nov 2023",
+   "most_recent_year": 2023
+  },
+  {
+   "name": "1Malaysia Development Berhad",
+   "label": "positive",
+   "citation": "DOJ asset-forfeiture actions; Goldman DPA 2020",
+   "most_recent_year": 2020
+  },
+  {
+   "name": "Binance",
+   "label": "positive",
+   "citation": "DOJ guilty plea, BSA and sanctions violations, USD 4.3bn, Nov 2023",
+   "most_recent_year": 2023
+  },
+  {
+   "name": "Wells Fargo",
+   "label": "positive",
+   "citation": "DOJ USD 3bn resolution 2020; CFPB USD 3.7bn Dec 2022",
+   "most_recent_year": 2022
+  },
+  {
+   "name": "Nordea",
+   "label": "positive",
+   "citation": "Danish authorities indicted the bank for AML Act violations, 2024 (charged, not determined)",
+   "most_recent_year": 2024
+  },
+  {
+   "name": "Swedbank",
+   "label": "positive",
+   "citation": "Swedish FSA penalty SEK 4bn for AML deficiencies, Mar 2020",
+   "most_recent_year": 2020
+  },
+  {
+   "name": "Skandinaviska Enskilda Banken",
+   "label": "positive",
+   "citation": "Swedish FSA penalty SEK 1bn for AML deficiencies, Jun 2020",
+   "most_recent_year": 2020
+  },
+  {
+   "name": "Goldman Sachs",
+   "label": "positive",
+   "citation": "DOJ DPA over 1MDB, USD 2.9bn, Oct 2020",
+   "most_recent_year": 2020
+  },
+  {
+   "name": "Deutsche Bank",
+   "label": "positive",
+   "citation": "DOJ FCPA and commodities-fraud DPA, USD 130m, Jan 2021",
+   "most_recent_year": 2021
+  },
+  {
+   "name": "HSBC",
+   "label": "positive",
+   "citation": "DOJ DPA over AML and sanctions, USD 1.9bn, Dec 2012",
+   "most_recent_year": 2012
+  },
+  {
+   "name": "Standard Chartered",
+   "label": "positive",
+   "citation": "US sanctions resolution USD 1.1bn, Apr 2019",
+   "most_recent_year": 2019
+  },
+  {
+   "name": "Airbus",
+   "label": "positive",
+   "citation": "Global corruption settlement EUR 3.6bn (FR/UK/US), Jan 2020",
+   "most_recent_year": 2020
+  },
+  {
+   "name": "Siemens",
+   "label": "positive",
+   "citation": "FCPA resolution USD 1.6bn, Dec 2008",
+   "most_recent_year": 2008
+  },
+  {
+   "name": "Bernie Madoff",
+   "label": "positive",
+   "citation": "Convicted of securities fraud, 2009 (person)",
+   "most_recent_year": 2009
+  },
+  {
+   "name": "Jho Low",
+   "label": "positive",
+   "citation": "Indicted by DOJ over 1MDB; fugitive (person)"
+  },
+  {
+   "name": "Ericsson",
+   "label": "positive",
+   "citation": "DOJ FCPA DPA USD 1.06bn Dec 2019; guilty plea for breach, Mar 2023",
+   "most_recent_year": 2023
+  },
+  {
+   "name": "Equinor",
+   "label": "positive",
+   "citation": "Statoil convicted of corruption in Norway 2004 (Horton case); FCPA USD 10.5m 2006",
+   "most_recent_year": 2006
+  },
+  {
+   "name": "Yara International",
+   "label": "positive",
+   "citation": "Okokrim corporate penalty NOK 295m for gross corruption, Jan 2014",
+   "most_recent_year": 2014
+  },
+  {
+   "name": "Microsoft",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement against the entity found"
+  },
+  {
+   "name": "Toyota",
+   "label": "ambiguous",
+   "citation": "DOJ: Hino Motors, a Toyota SUBSIDIARY, pleaded guilty to an emissions fraud scheme and was sentenced to pay over USD 1.6bn, Jan 2025. RECLASSIFIED from negative to ambiguous on 17 August 2026: the matter is real and is fraud, but it is against a subsidiary, not the parent, and the labelling rule requires action against the entity itself. Whether a subsidiary's matter should alert the parent is a policy question, which is what the ambiguous class is for. Found because a screening system flagged it and the label was checked rather than the system."
+  },
+  {
+   "name": "IKEA",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "LEGO",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Adobe Inc.",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Salesforce",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Netflix",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Spotify",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Shopify",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Nokia",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "ASML Holding",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "TSMC",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "AstraZeneca",
+   "label": "negative",
+   "citation": "China healthcare probe reported; no concluded AML-predicate action"
+  },
+  {
+   "name": "Moderna",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Orkla",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Telenor",
+   "label": "negative",
+   "citation": "VimpelCom matter concerned the associate, not Telenor ASA itself"
+  },
+  {
+   "name": "Norsk Hydro",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Kongsberg Gruppen",
+   "label": "negative",
+   "citation": "no concluded AML-predicate action against the parent"
+  },
+  {
+   "name": "Aker BP",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Schibsted",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Storebrand",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Gjensidige",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Sparebanken Vest",
+   "label": "negative",
+   "citation": "supervisory reports only; no AML-predicate enforcement"
+  },
+  {
+   "name": "Hurtigruten",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Rema 1000",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Elkem",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Tomra",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Autostore",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Cognite",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Norwegian University of Science and Technology",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "University of Oslo",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "Karolinska Institute",
+   "label": "negative",
+   "citation": "research-misconduct matter; not an AML predicate"
+  },
+  {
+   "name": "Max Planck Society",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "CERN",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "European Space Agency",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "World Health Organization",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "Norges Bank",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "Finanstilsynet",
+   "label": "negative",
+   "citation": "the supervisor itself"
+  },
+  {
+   "name": "Statistics Norway",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "St. Olav's University Hospital",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "Mayo Clinic",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "Red Cross",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement against the organisation"
+  },
+  {
+   "name": "Rosenborg BK",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement"
+  },
+  {
+   "name": "Manchester United F.C.",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement against the club"
+  },
+  {
+   "name": "Vipps",
+   "label": "negative",
+   "citation": "no AML-predicate enforcement found"
+  },
+  {
+   "name": "Apple Inc.",
+   "label": "ambiguous",
+   "citation": "antitrust and competition fines (FR 2020, EU 2024); no AML predicate"
+  },
+  {
+   "name": "Unilever",
+   "label": "ambiguous",
+   "citation": "EU price-fixing cartel EUR 104m 2011 — antitrust"
+  },
+  {
+   "name": "Nestlé",
+   "label": "ambiguous",
+   "citation": "human-rights and labour litigation; no AML predicate"
+  },
+  {
+   "name": "Costco",
+   "label": "ambiguous",
+   "citation": "environmental and pharmacy-kickback settlements"
+  },
+  {
+   "name": "Novo Nordisk",
+   "label": "ambiguous",
+   "citation": "product-liability multidistrict litigation"
+  },
+  {
+   "name": "Roche",
+   "label": "ambiguous",
+   "citation": "historic vitamins price-fixing (criminal antitrust) USD 500m 1999"
+  },
+  {
+   "name": "Volkswagen emissions scandal",
+   "label": "ambiguous",
+   "citation": "criminal, but emissions fraud rather than an AML predicate; also an event article"
+  },
+  {
+   "name": "Machine learning",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Cryptography",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Blockchain",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Vaccine",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Antibiotic resistance",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Climate change",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Carbon capture and storage",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Nuclear fusion",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Photosynthesis",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Glacier",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Turbulence",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Remote sensing",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Semiconductor",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Lithium-ion battery",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Recycling",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Aluminium",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Hydrogen economy",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Solar panel",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Tour de France",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Eurovision Song Contest",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Trondheim",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Bergen",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Stockholm",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Amsterdam",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Kyoto",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "The Beatles",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Impressionism",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Chess",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Marathon",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Olympic Games",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Nobel Prize",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Panama Papers",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Horticulture",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Grafting",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Toxicology",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Cybersecurity",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Fraud prevention",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Internal audit",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Compliance (psychology)",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Risk management",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Insurance",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Bankruptcy",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Corporate governance",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Whistleblower",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Due diligence",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Anti-money laundering",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Know your customer",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Financial regulation",
+   "label": "not_an_entity",
+   "citation": ""
+  },
+  {
+   "name": "Sanctions (law)",
+   "label": "not_an_entity",
+   "citation": ""
+  }
+ ],
+ "note_on_recency": "Positives carry most_recent_year, read from the citation. A screening system that grades by recency — a 2012 deferred prosecution is not a 2025 indictment — is doing something these labels alone cannot see, and scoring it at one threshold punishes it for that. Added 17 August 2026 after the first published run made exactly that mistake.",
+ "corrections": [
+  {
+   "date": "2026-08-17",
+   "entity": "Toyota",
+   "from": "negative",
+   "to": "ambiguous",
+   "reason": "DOJ action is against Hino Motors, a subsidiary. Surfaced by a system flagging it; the label was wrong, not the system."
+  }
+ ]
+}

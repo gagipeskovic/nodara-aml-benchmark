@@ -1,0 +1,30 @@
+labels.json — CC0 1.0 Universal (Public Domain Dedication)
+
+To the extent possible under law, Nodara has waived all copyright and related
+or neighbouring rights to the labels, class assignments and citations in
+labels.json. The work is published from Norway.
+
+You may copy, modify, distribute and use the labels, including for commercial
+purposes, all without asking permission.
+
+Full text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+WHY CC0 AND NOT A SHARE-ALIKE LICENCE
+A benchmark that others cannot build on, correct, extend or sell is not a
+benchmark; it is a marketing asset with a licence file. The point of publishing
+these labels is that a competitor can run their own system against them and
+publish a number that contradicts ours.
+
+WHAT THE LABELS ARE NOT
+The citations name public enforcement actions and are believed accurate as at
+17 August 2026. They are not legal advice, they are not a statement that any
+entity is currently under suspicion, and a `negative` label means only that no
+documented matter was found at labelling time — not that none exists. Entities
+move between classes as enforcement is opened, resolved, appealed or reversed.
+Corrections are welcome and are the reason this file is in the public domain.
+
+NO THIRD-PARTY DATA IS REDISTRIBUTED HERE
+This repository contains no article text, no encyclopaedia content and no
+vendor's dataset. The harness asks a screening system about a NAME. The
+optional baseline adapter fetches Wikipedia at run time; that text is
+CC BY-SA 4.0, belongs to its authors, and is not part of this repository.
