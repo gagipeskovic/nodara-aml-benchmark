@@ -109,19 +109,49 @@ company register — no labels, no selection, no way to make it easy. It answers
 | | Alert load | 95 % CI | Sample |
 |---|---|---|---|
 | Nodara, 17 August | 46 % | 39–53 % | 186 random Norwegian limited companies |
-| Nodara, 18 August | **7 %** | 3.7–11.8 % | 150 of the same, same seed |
-| Nodara, after the day's fixes | **2.7 %** | 1.0–6.7 % | derived, see below |
+| Nodara, 18 August (morning) | 7 % | 3.7–11.8 % | 150 of the same, same seed |
+| **Nodara, 18 August (evening)** | **2.7 %** | **1.0–6.7 %** | **150 screened fresh, 0 failed** |
+| Red lights, same run | **0 of 150** | 0–2.5 % | — |
 
-**How 2.7 % is derived, since it is not a fresh run.** The ten companies that alerted were
-re-screened after the fixes; the 140 that did not were not. Every change that day except one is
-*suppressive* — it can only remove alerts, never create them. The exception is a cross-authority
-recency rule that can raise a company with adjudicated findings from two different regulators,
-which no three-employee holding company has. The figure is sound and it is derived rather than
-observed, and it is labelled as such here rather than quietly reported as a measurement.
+The evening run replaced the derived figure that stood here earlier, and the reason it had to
+is worth more than the number.
 
-Of the four remaining alerts, **three are correct**: two companies in voluntary winding-up and
-one in compulsory liquidation, all read from the free national register. The fourth is a name
-collision — a Norwegian company sharing its name with a US retailer's Chapter 11.
+**The earlier 2.7 % described a system that was no longer running.** It was measured with the
+payable screening provider switched OFF: the sanctions, PEP and authority-flag rows were grey on
+all 150 companies and could not alert, because they did not run. The provider was then
+configured. A published figure that silently describes a different configuration is exactly the
+failure this repository exists to make visible, so the run was done again.
+
+**The fresh run first returned 4.7 %** — seven of 150. Three of those seven were one defect:
+
+| Subject | Matched | Score |
+|---|---|---|
+| RRK AS | `OOO "RRK"` (Russian) | 0.704 |
+| SARV AS | `АО «ТЕХНОПАРК «САРОВ»»` | 0.705 |
+| INVESTIN AS | `Sinvest AS` (a different Norwegian company) | 0.760 |
+
+Every one sits just above the 0.70 match threshold, every subject resolves to no canonical
+entity, and every name reduces to a single short token. A fuzzy hit on a short unresolvable name
+is not an identification, so such a hit may now be reported and may not raise a light. Strong
+hits (≥ 0.90) are untouched — Gazprombank scores 1.00 and still goes red.
+
+**How the 2.7 % is arrived at, stated rather than smoothed.** All 150 were screened fresh under
+ruleset `lex-7847f0590f62+gate-2026-08-b`. The three subjects above were then re-screened
+individually under `gate-2026-08-c` and confirmed low. The other 147 were not re-screened, and
+do not need to be: `gate-c` is purely *suppressive* — it can only move a light down, never
+create an alert — so a company that was low under `b` is low under `c`. That is a shorter
+derivation than the one it replaces, and it is still a derivation.
+
+**The four remaining alerts.** Three are correct and come from the free national register:
+companies in winding-up or compulsory liquidation. The fourth is a name collision — a Norwegian
+company sharing its name with a US retailer's Chapter 11 — and it is still open.
+
+**28 of 150 (19 %) could not be identified in free text at all**: no canonical entity, and a
+name that reduces to one word once the legal form is stripped. Nearly one random Norwegian
+company in five. Those subjects now return a grey adverse-media light stating that the control
+could not be performed, rather than a green one stating that nothing was found. Green would
+convert a failed control into a clearance, and a clearance is what a firm relies on when it
+decides to onboard.
 
 ## What this number is NOT
 
@@ -140,7 +170,7 @@ can check it, which is the whole reason this repository exists.
 
 ## Why a random draw is worth the trouble
 
-Four defects, none of which any labelled benchmark could reach, because every one of them needs
+Six defects, none of which any labelled benchmark could reach, because every one of them needs
 a name that is short, generic, or collides with a common word:
 
 | Subject | What it was given | Cause |
@@ -149,6 +179,8 @@ a name that is short, generic, or collides with a common word:
 | OK INVEST AS | the Gunfight at the O.K. Corral | encyclopaedia article guessed from the name |
 | FIRST SEAGULL AS | a seagull that stole a handbag in Bournemouth | word matching instead of name matching |
 | JR HANSEN AS | a US federal fraud sentencing | `hansen` is a common Norwegian surname |
+| PILO AS | a Colombian gang arrest ('El Pilo', Tren de Aragua) | the name-phrase gate disarmed itself on one-word names |
+| RRK AS / SARV AS | Russian sanctions listings | a 3–4 letter token matched a foreign entity at 0.70 |
 
 A benchmark of famous names measures the easy half of the problem.
 
@@ -162,11 +194,16 @@ python3 population.py --adapter nodara   --n 150 --host https://your-deployment
 ```
 
 The baseline and the population draw need only public data and no key. Scoring a commercial
-system costs whatever that system charges per query; ours bills EUR 0.10, so the 70-entity
-benchmark cost about EUR 7 and the 150-company population run about EUR 15.
+system costs whatever that system charges per query; ours bills about NOK 1.12 per query, so the
+70-entity benchmark costs roughly NOK 80 and the 150-company population run NOK 168. The run
+reports its own query count, so the cost is measured rather than estimated.
 
 `population.py` is written to be re-pointed: replace `draw_population` and it measures any
 jurisdiction with an open company register.
 
 *Measured against production at `newsify-vuk0.onrender.com`: the labelled benchmark 17 August
-2026, the population study 17–18 August 2026.*
+2026, the population study 17–18 August 2026. The 18 August evening run was taken on ruleset
+`lex-7847f0590f62+gate-2026-08-b` with the three re-screens on `gate-2026-08-c`; raw rows in
+`population_150_18aug.json`. The live product prints the ruleset it is running beside these
+figures, so a drift between what was measured and what is deployed is visible in the product
+rather than discovered in a meeting.*
